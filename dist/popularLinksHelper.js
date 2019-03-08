@@ -149,11 +149,13 @@ httpStatusForLink = function(urlStr, fn) {
     return req.on("response", function(response) {
       var location, ref, server;
       //console.log "HTTP response for #{urlStr} is '#{response.statusCode}'"
+      result.httpCode = response.statusCode;
       if (response.statusCode >= 200 && response.statusCode < 300) {
         result.text = "ok";
       } else if (response.statusCode >= 300 && response.statusCode < 400 && (location = response.headers["location"])) {
         result.text = `Redirect '${response.statusCode}' to ${location}`;
         result.status = "alert";
+        result.location = location;
       } else {
         server = response.headers.server || "unknown";
         if (server.match(/(?:cloudflare|Cloudproxy)/i) && ((ref = response.statusCode) === 403 || ref === 503)) {

@@ -106,11 +106,13 @@ httpStatusForLink = (urlStr, fn)->
 			fn?(null, result)
 		req.on "response", (response)->
 			#console.log "HTTP response for #{urlStr} is '#{response.statusCode}'"
+			result.httpCode = response.statusCode
 			if response.statusCode >= 200 and response.statusCode < 300
 				result.text = "ok"
 			else if response.statusCode >= 300 and response.statusCode < 400  and location = response.headers["location"]
 				result.text = "Redirect '#{response.statusCode}' to #{location}"
 				result.status = "alert"
+				result.location = location
 			else
 				server = response.headers.server or "unknown"
 				if server.match(/(?:cloudflare|Cloudproxy)/i) and response.statusCode in [403, 503]
