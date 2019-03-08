@@ -1,0 +1,16 @@
+{
+  "name": "popularlinkshelper",
+  "version": "1.0.0",
+  "description": "A helper for exploring / extracting info from the popular link pages",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hugo",
+  "license": "ISC",
+  "dependencies": {
+  	"underscore": "1.5.x",
+    "seq": "0.3.x",
+		"all-the-links": "1.0.x"
+  }
+}

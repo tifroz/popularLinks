@@ -1,0 +1,17 @@
+{
+  "name": "Swishly-web-monitor",
+  "description": "HTTP Monitoring service",
+  "version": "0.0.1",
+  "private": true,
+  "main": "dist/api.js",
+  "dependencies": {
+    "all-the-links": "1.0.x",
+    "commander": "2.9.x",
+    "emailjs": "^1.0.12",
+    "request": "^2.86.0",
+    "seq": "0.3.x",
+    "timezone": "0.0.x",
+    "underscore": "1.7.x",
+    "winston": "0.7.x"
+  }
+}
